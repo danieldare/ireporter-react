@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './homepage.css';
 
 const HomePage = () => (
@@ -17,12 +18,12 @@ const HomePage = () => (
             Users can also report on things that needs government intervention
           </div>
           <div>
-            <a href="##" className="btn btn-login btn--animated ">
+            <Link to="/login" className="btn btn-login btn--animated ">
               Login
-            </a>
-            <a href="##" className="btn btn-register btn--animated ">
+            </Link>
+            <Link to="/register" className="btn btn-register btn--animated ">
               Register
-            </a>
+            </Link>
           </div>
         </div>
       </div>

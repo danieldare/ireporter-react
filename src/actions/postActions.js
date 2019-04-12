@@ -17,14 +17,12 @@ export const createRecord = incidentData => (dispatch, getState) => {
     tokenConfig(getState)
   )
     .then(res => {
-      console.log(res.data);
       dispatch({
         type: CREATE_REDFLAG,
         payload: res.data
       });
     })
     .catch(err => {
-      console.log(err);
       if (err.message === 'Network Error') {
         dispatch({ type: NETWORK_ERROR });
         return toast.error('Check Internet connection!');
