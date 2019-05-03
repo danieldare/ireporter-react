@@ -1,0 +1,66 @@
+/* HEADER */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 70px;
+  height: 50px;
+  position: relative;
+  font-family: "Nunito";
+  /* margin-bottom: 60px; */
+  background: #3c4859;
+  border-bottom: 2px solid #db8367;
+  box-shadow: 0 5px 8px solid rgba(0, 0, 0, 0.2);
+}
+
+.header__img {
+  position: absolute;
+  top: -105%;
+  left: -70%;
+  transform: rotate(180deg);
+  z-index: -1;
+}
+
+.header__brand {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 50px;
+  letter-spacing: 0.2rem;
+}
+
+.header__brand-link {
+  text-decoration: none;
+}
+
+.header__item-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__item {
+  list-style: none;
+}
+
+.header__item:not(:last-child) {
+  margin-right: 7rem;
+}
+
+.header__item-link {
+  /* padding:20px 0; */
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  line-height: 50px;
+  align-content: stretch;
+}
+
+.header__item-link:hover {
+  padding: 3px 0;
+  border-bottom: 2px solid #fff;
+}
