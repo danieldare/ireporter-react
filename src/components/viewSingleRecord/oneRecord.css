@@ -1,0 +1,184 @@
+.description-incident__brief {
+  font-weight: 600;
+  line-height: 1.8;
+  height: 300px;
+  padding: 10px 30px;
+  color: #d1603d;
+  box-shadow: 0 4px 9px rgba(71, 71, 71, 0.1);
+  color: #3c4859;
+  font-family: "Nunito", sans-serif;
+}
+
+.description-incident {
+  padding: 10px 0;
+}
+
+.description__title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.2rem;
+  font-weight: 600;
+  background: #d1603d;
+  color: #fff;
+  padding: 17px 30px;
+  background-image: linear-gradient(#da8467, rgba(131, 131, 131, 0.685)),
+    url("https://res.cloudinary.com/decqfpglp/image/upload/v1554140340/city-wallpaper-9.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 100%;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 3px;
+}
+
+.location-title {
+  margin: 40px auto 0 auto;
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 10px 30px;
+  color: white;
+  background: #3c485adc;
+  width: 100%;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.map {
+  width: 100% !important;
+  height: 300px !important;
+  margin: 0 auto;
+  position: relative !important;
+  top: 0;
+  left: 0;
+  z-index: 0 !important;
+}
+
+.map-container {
+  position: relative;
+}
+
+.edit-btn {
+  font-family: "Nunito", sans-serif;
+  padding: 12px 15px;
+  border-radius: 3px;
+  outline: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+  text-decoration: none;
+  background: #fff;
+  color: #000;
+}
+
+hr {
+  margin: 0;
+}
+.single-container {
+  margin: 90px 0;
+}
+
+.no-media {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-family: "Nunito", sans-serif;
+  margin: 30px 0;
+}
+
+.heading-part {
+  display: flex;
+  justify-content: space-between;
+}
+
+.go-back {
+  padding: 11px 17px;
+  font-family: "Nunito", sans-serif;
+
+  text-decoration: none;
+  border: 1px solid #3c4859;
+  display: inline-block;
+  align-self: baseline;
+  border-radius: 5px;
+  background-color: #3c4859;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.one-record__status-response {
+  font-size: 3.5rem;
+  font-weight: 800;
+  font-family: "Nunito";
+}
+
+.one-record__time {
+  font-size: 1.1rem !important;
+}
+
+.loading-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #bbbbbb6b;
+  overflow-x: hidden;
+  transition: opacity 1s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.spinner {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-top-color: rgb(255, 255, 255);
+  border-left-color: rgb(255, 255, 255);
+
+  animation: spinner 800ms linear infinite;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .input-block {
+    position: relative;
+    flex-basis: 100%;
+    margin: 24px 0;
+  }
+}

@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import HomePage from './components/HomePage/HomePage';
 import CreateIncident from './components/createIncident/createIncident';
 import ViewIncident from './components/ViewIncident/viewIncident';
+import viewSingleRecord from './components/viewSingleRecord/viewSingleRecord';
 
 const route = () => (
   <Switch>
@@ -16,6 +17,8 @@ const route = () => (
     <Route path="/view-redflag" component={ViewIncident} exact />
     <Route path="/view-intervention" component={ViewIncident} exact />
     <Route path="/create-intervention" component={CreateIncident} exact />
+    <Route path="/view-single-redflag" component={viewSingleRecord} />
+    <Route path="/view-single-intervention" component={viewSingleRecord} />
     <Route path="/register" component={Register} exact />
   </Switch>
 );
