@@ -143,7 +143,7 @@ class CreateIncident extends Component {
               value={comments}
             />
             <InputField
-              placeholder="location"
+              placeholder="location (e.g 6.5243793, 3.3792057)"
               name="location"
               onChange={this.onChange}
               error={msg && msg.location}

@@ -7,6 +7,7 @@ import HomePage from './components/HomePage/HomePage';
 import CreateIncident from './components/createIncident/createIncident';
 import ViewIncident from './components/ViewIncident/viewIncident';
 import viewSingleRecord from './components/viewSingleRecord/viewSingleRecord';
+import Profile from './components/Profile/Profile';
 
 const route = () => (
   <Switch>
@@ -19,6 +20,7 @@ const route = () => (
     <Route path="/create-intervention" component={CreateIncident} exact />
     <Route path="/view-single-redflag" component={viewSingleRecord} />
     <Route path="/view-single-intervention" component={viewSingleRecord} />
+    <Route path="/profile" component={Profile} exact />
     <Route path="/register" component={Register} exact />
   </Switch>
 );
