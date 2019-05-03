@@ -5,6 +5,7 @@ import Register from './components/Auth/Register';
 import Dashboard from './components/Dashboard/Dashboard';
 import HomePage from './components/HomePage/HomePage';
 import CreateIncident from './components/createIncident/createIncident';
+import ViewIncident from './components/ViewIncident/viewIncident';
 
 const route = () => (
   <Switch>
@@ -12,6 +13,8 @@ const route = () => (
     <Route path="/dashboard" component={Dashboard} exact />
     <Route path="/login" component={Login} exact />
     <Route path="/create-redflag" component={CreateIncident} exact />
+    <Route path="/view-redflag" component={ViewIncident} exact />
+    <Route path="/view-intervention" component={ViewIncident} exact />
     <Route path="/create-intervention" component={CreateIncident} exact />
     <Route path="/register" component={Register} exact />
   </Switch>
