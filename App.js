@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { css } from 'glamor';
 import decode from 'jwt-decode';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import store from './store';
 import Header from './src/components/Header/Header';
 import Footer from './src/components/Footer/Footer';
