@@ -11,3 +11,9 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+export const CREATE_REDFLAG = 'CREATE_REDFLAG';
+export const CREATE_FAILED = 'CREATE_FAILED';
+export const CREATING = 'CREATING';
+
+export const NETWORK_ERROR = 'NETWORK_ERROR';
