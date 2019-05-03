@@ -35,7 +35,7 @@ const HomePage = props => (
             to the notice of appropriate authorities and the general public.
             Users can also report on things that needs government intervention
           </div>
-          <div>{props.auth ? authLinks : guestLinks}</div>
+          <div>{props.auth.isAuthenticated ? authLinks : guestLinks}</div>
         </div>
       </div>
     </section>
