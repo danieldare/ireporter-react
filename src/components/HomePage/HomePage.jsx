@@ -1,8 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './homepage.css';
+import { connect } from 'react-redux';
 
-const HomePage = () => (
+const guestLinks = (
+  <div>
+    <Link to="/login" className="btn btn-login btn--animated ">
+      Login
+    </Link>
+    <Link to="/register" className="btn btn-register btn--animated ">
+      Register
+    </Link>
+  </div>
+);
+
+const authLinks = (
+  <Link to="/dashboard" className="btn btn-login btn--animated ">
+    My Dashboard
+  </Link>
+);
+
+const HomePage = props => (
   <div>
     <section className="homepage-container">
       <div className="bg-img">
@@ -17,14 +35,7 @@ const HomePage = () => (
             to the notice of appropriate authorities and the general public.
             Users can also report on things that needs government intervention
           </div>
-          <div>
-            <Link to="/login" className="btn btn-login btn--animated ">
-              Login
-            </Link>
-            <Link to="/register" className="btn btn-register btn--animated ">
-              Register
-            </Link>
-          </div>
+          <div>{props.auth ? authLinks : guestLinks}</div>
         </div>
       </div>
     </section>
@@ -57,4 +68,8 @@ const HomePage = () => (
   </div>
 );
 
-export default HomePage;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(HomePage);
