@@ -1,0 +1,93 @@
+/* FORM */
+
+.form-container {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  width: 40%;
+  width: 40%;
+  padding: 40px 25px;
+  margin: 70px auto 100px auto;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.form-title {
+  font-weight: 800;
+  text-align: center;
+  margin: 20px 0 50px;
+  font-size: 1.8rem;
+  color: #d1603d;
+}
+
+.account-not {
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  font-size: 1.7rem;
+}
+
+.account-not a {
+  text-decoration: none;
+  color: #d1603d;
+}
+
+.account-not a:hover {
+  margin: 12px 0;
+  border-bottom: 2px solid #d1603d;
+}
+
+/* FORM */
+
+.input-field {
+  padding: 18px 15px;
+  width: 100%;
+  margin: 7px 0 15px 0;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #c1c1c1;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+  color: #3c4859;
+}
+
+.input-field::-webkit-input-placeholder,
+.textarea-field::-webkit-input-placeholder {
+  color: #c1c1c1;
+  font-family: "Dosis", sans-serif;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  border: 1px solid #d1603d;
+  outline: none;
+}
+
+.textarea-field {
+  padding: 18px 15px;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 3px;
+  border: 1px solid #c1c1c1;
+  font-size: 1.5rem;
+  resize: none;
+  height: 150px;
+  transition: all 0.2s ease-in;
+  color: #3c4859;
+}
+
+.info-error {
+  font-size: 1.4rem;
+  color: #d1603d;
+  position: relative;
+  top: -12px;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.2;
+}
+
+.danger {
+  border: 1px solid #d1603d71;
+  transition: 0.1ms;
+  outline: none;
+}

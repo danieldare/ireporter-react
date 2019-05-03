@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-@import url('https://fonts.googleapis.com/css?family=Nunito:600,800');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600');
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Nunito:600,800");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700");
 
 * {
   margin: 0;
@@ -22,9 +22,7 @@ html {
 }
 
 body {
-  /* font-family: 'Open Sans', sans-serif; */
-  font-family: 'Dosis', sans-serif;
-  /* font-family: 'Montserrat', sans-serif; */
+  font-family: "Dosis", sans-serif;
   font-size: 1.6rem;
   line-height: 1.3;
   min-height: 100vh;
@@ -32,7 +30,7 @@ body {
 
 /* HELPER */
 .container {
-  max-width: 1100px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -86,7 +84,7 @@ body {
   padding: 10px 25px;
   cursor: pointer;
   font-size: 1.5rem;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   background: #3c4859;
   color: #fff;
   border-radius: 4px;
@@ -98,7 +96,7 @@ body {
   padding: 10px 25px;
   cursor: pointer;
   font-size: 1.5rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   background: #d1603d;
   color: #fff;
   border-radius: 4px;
@@ -249,15 +247,12 @@ body {
   opacity: 0.1;
 }
 
-/* Spinner */
 .spinner {
-  /* Spinner size and color */
   width: 1.8rem;
   height: 1.8rem;
   border-top-color: rgb(255, 255, 255);
   border-left-color: rgb(255, 255, 255);
 
-  /* Additional spinner styles */
   animation: spinner 800ms linear infinite;
   border-bottom-color: transparent;
   border-right-color: transparent;
@@ -271,6 +266,36 @@ body {
 
 /* Animation styles */
 @keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner */
+.spinner-2 {
+  /* Spinner size and color */
+  width: 1.8rem;
+  height: 1.8rem;
+  border-top-color: #d1603d;
+  border-left-color: #d1603d;
+
+  /* Additional spinner styles */
+  animation: spinner-2 800ms linear infinite;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Animation styles */
+@keyframes spinner-2 {
   0% {
     transform: rotate(0deg);
   }
