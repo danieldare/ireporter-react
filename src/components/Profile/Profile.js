@@ -5,7 +5,6 @@ import {
   getIncidents,
   deleteIncident
 } from '../../actions/actionCreators/profileAction';
-import './Profile.css';
 
 const Profile = props => {
   const {

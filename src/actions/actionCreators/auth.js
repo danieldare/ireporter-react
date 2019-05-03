@@ -99,8 +99,8 @@ export const login = (userData, history) => dispatch => {
   };
 
   const userInfo = JSON.stringify({ ...userData });
-  dispatch({ type: USER_LOADING });
-  Axios.post(
+
+  return Axios.post(
     'https://ireporter-full.herokuapp.com/api/v1/auth/login',
     userInfo,
     config

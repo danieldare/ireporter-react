@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './dashboard.css';
 
 const dashboard = props => (
   <div className="container">

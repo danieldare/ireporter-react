@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import dayjs from 'dayjs';
 import { withRouter, Link } from 'react-router-dom';
-import './oneRecord.css';
 import { GoogleApiWrapper, Map } from 'google-maps-react';
 import { TextAreaField } from '../InputFields/InputField';
 import { fetchOneRecord } from '../../actions/actionCreators/singleRecord';
