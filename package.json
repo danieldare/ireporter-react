@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack --mode production",
     "devstart": "webpack-dev-server --open --debug --mode development",
-    "precommit": "NODE_ENV=production lint-staged",
     "start": "node server",
     "test": "jest --config jest.config.js"
   },

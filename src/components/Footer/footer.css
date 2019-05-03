@@ -1,0 +1,56 @@
+/* FOOTER */
+.footer_content {
+  background: #3c4859;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+}
+
+.footer-content {
+  background: #3c4859;
+  text-align: center;
+  color: #fff;
+  padding: 5px 0;
+  align-items: stretch;
+  letter-spacing: 0.1rem;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
+.footer-content a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0 10px;
+  font-weight: 600;
+}
+
+.brand-name {
+  font-size: 4rem;
+  margin: 5px 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer__content__left-brand {
+  text-align: center;
+}
+
+.brand-name__brief {
+  color: #da8367;
+  letter-spacing: 0.2rem;
+  font-size: 1.5rem;
+  background-color: #da8367;
+  color: #fff;
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 10px;
+}
+
+.footer-bottom {
+  background: #4b5461;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.4rem;
+  color: #fff;
+}
