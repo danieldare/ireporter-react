@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import dayjs from 'dayjs';
-import './viewIncident.css';
 import { fetchIncident } from '../../actions/actionCreators/viewIncident';
 
 const viewIncident = props => {

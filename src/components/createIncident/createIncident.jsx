@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import InputField, { TextAreaField } from '../InputFields/InputField';
-import './createRecord.css';
 import { createRecord } from '../../actions/actionCreators/postActions';
 
 class CreateIncident extends Component {
