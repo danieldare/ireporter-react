@@ -1,0 +1,10 @@
+import './components/createIncident/createRecord.css';
+import './components/Dashboard/dashboard.css';
+import './components/Footer/footer.css';
+import './components/Header/header.css';
+import './components/HomePage/homepage.css';
+import './components/InputFields/inputField.css';
+import './components/Profile/Profile.css';
+import './components/viewSingleRecord/oneRecord.css';
+import './components/ViewIncident/viewIncident.css';
+import '../style.css';

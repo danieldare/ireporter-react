@@ -3,13 +3,13 @@ import { Provider } from 'react-redux';
 import { css } from 'glamor';
 import decode from 'jwt-decode';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+// import './node_modules/react-toastify/dist/ReactToastify.min.css';
 import store from './store';
 import Header from './src/components/Header/Header';
 import Footer from './src/components/Footer/Footer';
 import Route from './src/Route';
 import { setCurrentUser, logout } from './src/actions/actionCreators/auth';
-import './style.css';
+import './src/appcss';
 
 if (localStorage.token) {
   const token = decode(localStorage.token);
