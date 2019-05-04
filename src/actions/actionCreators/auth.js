@@ -35,10 +35,7 @@ export const loadUser = () => (dispatch, getState) => {
   // dispatch user loading properties
   dispatch({ type: USER_LOADING });
 
-  Axios.get(
-    'https://ireporter-full.herokuapp.com/api/v1/auth/current',
-    tokenConfig(getState)
-  )
+  Axios.get(`${process.env.API_BASE_URL}/auth/current`, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: USER_LOADED,
@@ -65,11 +62,7 @@ export const register = (userData, history) => dispatch => {
 
   const userInfo = JSON.stringify({ ...userData });
   dispatch({ type: USER_LOADING });
-  Axios.post(
-    'https://ireporter-full.herokuapp.com/api/v1/auth/signup',
-    userInfo,
-    config
-  )
+  Axios.post(`${process.env.API_BASE_URL}/v1/auth/signup`, userInfo, config)
     .then(res => {
       toast.success('Registration successful');
       dispatch({
@@ -99,12 +92,8 @@ export const login = (userData, history) => dispatch => {
   };
 
   const userInfo = JSON.stringify({ ...userData });
-
-  return Axios.post(
-    'https://ireporter-full.herokuapp.com/api/v1/auth/login',
-    userInfo,
-    config
-  )
+  dispatch({ type: USER_LOADING });
+  return Axios.post(`${process.env.API_BASE_URL}/auth/login`, userInfo, config)
     .then(res => {
       toast.success('Login successful');
       dispatch({

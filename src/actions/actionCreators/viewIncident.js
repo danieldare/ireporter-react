@@ -23,12 +23,9 @@ export const fetchIncidentFailure = payload => ({
 export const fetchIncident = url => (dispatch, getState) => {
   dispatch(fetchIncidentRequest());
   axios
-    .get(
-      `https://ireporter-full.herokuapp.com/api/v1/${url}`,
-      tokenConfig(getState)
-    )
+    .get(`${process.env.API_BASE_URL}/${url}`, tokenConfig(getState))
     .then(res => {
-      return dispatch(fetchIncidentSuccess(res.data));
+      return dispatch(fetchIncidentSuccess(res.data.data));
     })
     .catch(err => dispatch(fetchIncidentFailure(err.response)));
 };

@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
     case GET_INCIDENTS_SUCCESS:
       return {
         ...state,
-        incidents: action.payload.data,
+        incidents: action.payload,
         isLoading: false,
         error: null
       };

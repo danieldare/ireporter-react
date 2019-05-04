@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './components/createIncident/createRecord.css';
 import './components/Dashboard/dashboard.css';
 import './components/Footer/footer.css';

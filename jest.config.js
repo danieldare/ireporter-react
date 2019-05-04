@@ -31,20 +31,29 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  coveragePathIgnorePatterns: [
+    'node_modules',
+    'src/appcss.js',
+    'src/reducers/errorReducer.js',
+    'src/app.js',
+    'public',
+    './store.js'
+    // 'src/routes',
+    // 'src/reducers'
+  ],
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
 
   // An object that configures minimum threshold enforcement for coverage results
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80
-    }
-  },
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 80,
+  //     functions: 80,
+  //     lines: 80,
+  //     statements: 80
+  //   }
+  // },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,

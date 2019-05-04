@@ -1,0 +1,444 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App/> rendering matches the snapshot 1`] = `
+<App>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <BrowserRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <ToastContainer
+          autoClose={3000}
+          bodyClassName={
+            Object {
+              "data-css-1ssrlls": "",
+            }
+          }
+          className={null}
+          closeButton={
+            <CloseButton
+              ariaLabel="close"
+            />
+          }
+          closeOnClick={true}
+          draggable={true}
+          draggablePercent={80}
+          hideProgressBar={false}
+          newestOnTop={false}
+          pauseOnFocusLoss={true}
+          pauseOnHover={true}
+          position="top-center"
+          progressClassName={
+            Object {
+              "data-css-1wxv01": "",
+            }
+          }
+          progressStyle={null}
+          rtl={false}
+          style={null}
+          toastClassName={null}
+          transition={[Function]}
+        >
+          <div
+            className="Toastify"
+          />
+        </ToastContainer>
+        <Connect(Header)>
+          <Header
+            auth={
+              Object {
+                "isAuthenticated": null,
+                "isLoading": false,
+                "token": null,
+                "user": "",
+              }
+            }
+            dispatch={[Function]}
+          >
+            <div>
+              <img
+                alt="img"
+                className="header__img"
+                src="https://res.cloudinary.com/decqfpglp/image/upload/v1550621617/warning.png"
+              />
+              <header
+                className="header"
+              >
+                <Link
+                  className="header__brand-link"
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    className="header__brand-link"
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="header__brand"
+                    >
+                      iReporter
+                    </span>
+                  </a>
+                </Link>
+                <ul
+                  className="header__item-list"
+                >
+                  <li
+                    className="header__item"
+                  >
+                    <Link
+                      className="header__item-link"
+                      replace={false}
+                      to="/login"
+                    >
+                      <a
+                        className="header__item-link"
+                        href="/login"
+                        onClick={[Function]}
+                      >
+                        Login
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="header__item"
+                  >
+                    <Link
+                      className="header__item-link "
+                      replace={false}
+                      to="/register"
+                    >
+                      <a
+                        className="header__item-link "
+                        href="/register"
+                        onClick={[Function]}
+                      >
+                        Register
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </header>
+            </div>
+          </Header>
+        </Connect(Header)>
+        <route>
+          <Switch>
+            <Route
+              component={[Function]}
+              computedMatch={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+              exact={true}
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              path="/"
+            >
+              <Connect(HomePage)
+                history={
+                  Object {
+                    "action": "POP",
+                    "block": [Function],
+                    "createHref": [Function],
+                    "go": [Function],
+                    "goBack": [Function],
+                    "goForward": [Function],
+                    "length": 1,
+                    "listen": [Function],
+                    "location": Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    },
+                    "push": [Function],
+                    "replace": [Function],
+                  }
+                }
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  }
+                }
+                match={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+              >
+                <HomePage
+                  auth={
+                    Object {
+                      "isAuthenticated": null,
+                      "isLoading": false,
+                      "token": null,
+                      "user": "",
+                    }
+                  }
+                  dispatch={[Function]}
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <div>
+                    <section
+                      className="homepage-container"
+                    >
+                      <div
+                        className="bg-img"
+                      >
+                        <div
+                          className="container"
+                        >
+                          <h1
+                            className="homepage__title"
+                          >
+                            iReporter
+                          </h1>
+                          <p
+                            className="homepage__tag"
+                          >
+                            Let's build a better nation
+                            <mark
+                              className="highlight"
+                            >
+                              together
+                            </mark>
+                          </p>
+                          <div
+                            className="homepage__brief"
+                          >
+                            iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government intervention
+                          </div>
+                          <div>
+                            <div>
+                              <Link
+                                className="btn btn-login btn--animated "
+                                replace={false}
+                                to="/login"
+                              >
+                                <a
+                                  className="btn btn-login btn--animated "
+                                  href="/login"
+                                  onClick={[Function]}
+                                >
+                                  Login
+                                </a>
+                              </Link>
+                              <Link
+                                className="btn btn-register btn--animated "
+                                replace={false}
+                                to="/register"
+                              >
+                                <a
+                                  className="btn btn-register btn--animated "
+                                  href="/register"
+                                  onClick={[Function]}
+                                >
+                                  Register
+                                </a>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <div
+                      className="how-it-works-title"
+                    >
+                      How it works
+                    </div>
+                    <section
+                      className="how-it-works container"
+                    >
+                      <div
+                        className="how-it-work"
+                      >
+                        <p
+                          className="how-it-work-num"
+                        >
+                          1
+                        </p>
+                        <div
+                          className="how-it-work-brief"
+                        >
+                          Create and submit a red flag or intervention report.
+                        </div>
+                      </div>
+                      <div
+                        className="how-it-work"
+                      >
+                        <p
+                          className="how-it-work-num"
+                        >
+                          2
+                        </p>
+                        <div
+                          className="how-it-work-brief"
+                        >
+                          Reports are submitted to the appropriate authority and processed.
+                        </div>
+                      </div>
+                      <div
+                        className="how-it-work"
+                      >
+                        <p
+                          className="how-it-work-num"
+                        >
+                          3
+                        </p>
+                        <div
+                          className="how-it-work-brief"
+                        >
+                          Report are reviewed and a real time email is sent to owner of the record upon completion of the reviews.
+                        </div>
+                      </div>
+                    </section>
+                    <section
+                      className="relevant"
+                    >
+                      <p
+                        className="relevant-content"
+                      >
+                        MAKE YOUR VOICE RELEVANT
+                      </p>
+                    </section>
+                  </div>
+                </HomePage>
+              </Connect(HomePage)>
+            </Route>
+          </Switch>
+        </route>
+        <Footer>
+          <footer
+            className="footer"
+          >
+            <div
+              className="footer_content"
+            >
+              <div
+                className="footer__content__left-brand"
+              >
+                <div
+                  className="brand-name"
+                >
+                  iReporter
+                </div>
+                <p
+                  className="brand-name__brief"
+                >
+                  Let's build a better Nation.
+                </p>
+              </div>
+              <div
+                className="footer-content"
+              >
+                <a
+                  href="##"
+                >
+                  Terms and Conditions
+                </a>
+                <a
+                  href="##"
+                >
+                  | Contact Us
+                </a>
+                <a
+                  href="##"
+                >
+                  | Career 
+                </a>
+              </div>
+            </div>
+            <div
+              className="footer-bottom"
+            >
+              copyright © 2018. All rights reserved.
+            </div>
+          </footer>
+        </Footer>
+      </Router>
+    </BrowserRouter>
+  </Provider>
+</App>
+`;

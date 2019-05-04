@@ -12,7 +12,7 @@ import { tokenConfig } from './auth';
 export const createRecord = (incidentData, type) => (dispatch, getState) => {
   dispatch({ type: CREATING });
   Axios.post(
-    `https://ireporter-full.herokuapp.com/api/v1/${type}`,
+    `${process.env.API_BASE_URL}/${type}`,
     incidentData,
     tokenConfig(getState)
   )
