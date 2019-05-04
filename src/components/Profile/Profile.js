@@ -76,7 +76,14 @@ const Profile = props => {
                   <td>{title}</td>
                   <td>{type}</td>
                   <td>
-                    <Link to="/view-oneredflag" className="buttin">
+                    <Link
+                      to={
+                        type === 'red-flag'
+                          ? `/view-single-redflag?id=${id}`
+                          : `/view-single-intervention?id=${id}`
+                      }
+                      className="buttin"
+                    >
                       View
                     </Link>
                     <button

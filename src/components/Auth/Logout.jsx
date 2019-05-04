@@ -2,29 +2,21 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { logout } from "../../actions/actionCreators/auth";
+import { logout } from '../../actions/actionCreators/auth';
 
-class Logout extends Component {
-  state = {};
+const Logout = props => {
+  return (
+    <Fragment>
+      <Link to="#h" className="header__item-link " onClick={props.logout}>
+        Logout
+      </Link>
+    </Fragment>
+  );
+};
 
-  static propTypes = {
-    logout: PropTypes.func.isRequired
-  };
-
-  render() {
-    return (
-      <Fragment>
-        <Link
-          to="#hjdhdh"
-          className="header__item-link "
-          onClick={this.props.logout}
-        >
-          Logout
-        </Link>
-      </Fragment>
-    );
-  }
-}
+Logout.propTypes = {
+  logout: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

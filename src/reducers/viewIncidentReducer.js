@@ -13,10 +13,9 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RECORD_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
-        incidents: [...action.payload.data],
+        incidents: action.payload,
         isFetching: false
       };
     case FETCH_RECORD_REQUEST:

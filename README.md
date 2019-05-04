@@ -2,6 +2,10 @@
 
 iReporter is an web platform that enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public and also report on things that needs government intervention.
 
+[![Build Status](https://travis-ci.com/danieldare/ireporter-react.svg?branch=develop)](https://travis-ci.com/danieldare/ireporter-react)
+[![Maintainability](https://api.codeclimate.com/v1/badges/603441c28424719589ff/maintainability)](https://codeclimate.com/github/danieldare/ireporter-react/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/603441c28424719589ff/test_coverage)](https://codeclimate.com/github/danieldare/ireporter-react/test_coverage)
+
 ## Required Features
 
 - Users can sign up

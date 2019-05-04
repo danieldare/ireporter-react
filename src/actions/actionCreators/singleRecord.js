@@ -23,12 +23,8 @@ export const fetchRecordFailure = payload => ({
 export const fetchOneRecord = (id, url) => (dispatch, getState) => {
   dispatch(fetchRecordRequest());
   axios
-    .get(
-      `https://ireporter-full.herokuapp.com/api/v1/${url}/${id}`,
-      tokenConfig(getState)
-    )
+    .get(`${process.env.API_BASE_URL}/${url}/${id}`, tokenConfig(getState))
     .then(res => {
-      console.log(res.data);
       return dispatch(fetchRecordSuccess(res.data.data[0]));
     })
     .catch(err => dispatch(fetchRecordFailure(err.response)));

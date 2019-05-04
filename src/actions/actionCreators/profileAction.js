@@ -8,7 +8,7 @@ import {
   DELETE_INCIDENT,
   DELETE_ERRORS
 } from '../actionTypes/types';
-import { tokenConfig } from "./auth";
+import { tokenConfig } from './auth';
 
 export const getIncidentStart = () => ({
   type: INCIDENTS_LOADING
@@ -25,18 +25,12 @@ export const getIncidentFailure = payload => ({
 });
 
 export const getIncidents = () => (dispatch, getState) => {
-  console.log(dispatch);
   dispatch(getIncidentStart());
-  Axios.get(
-    'https://ireporter-full.herokuapp.com/api/v1/incident',
-    tokenConfig(getState)
-  )
+  Axios.get(`${process.env.API_BASE_URL}/incident`, tokenConfig(getState))
     .then(res => {
-      console.log(res.data);
-      return dispatch(getIncidentSuccess(res.data));
+      dispatch(getIncidentSuccess(res.data.data));
     })
     .catch(err => {
-      console.log(err);
       dispatch(getIncidentFailure(err.response));
     });
 };
@@ -44,11 +38,10 @@ export const getIncidents = () => (dispatch, getState) => {
 export const deleteIncident = (id, type) => (dispatch, getState) => {
   dispatch({ type: INCIDENT_DELETING });
   Axios.delete(
-    `https://ireporter-full.herokuapp.com/api/v1/${type}/${id}`,
+    `${process.env.API_BASE_URL}/${type}/${id}`,
     tokenConfig(getState)
   )
     .then(res => {
-      console.log(res.data.data[0].message);
       dispatch({ type: DELETE_INCIDENT, payload: id });
       return toast.error(res.data.data[0].message);
     })

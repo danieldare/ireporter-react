@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import InputField, { TextAreaField } from '../InputFields/InputField';
 import { createRecord } from '../../actions/actionCreators/postActions';
 
@@ -20,7 +20,11 @@ class CreateIncident extends Component {
   baseState = this.state;
 
   componentDidUpdate(prevProps) {
-    const { error, success } = this.props;
+    const {
+      error,
+      success,
+      match: { url }
+    } = this.props;
     if (error !== prevProps.error) {
       if (error.id === 'POST_FAILED') {
         this.setState({ msg: error.msg.errors });
@@ -29,7 +33,12 @@ class CreateIncident extends Component {
       }
     } else if (success !== prevProps.success) {
       setTimeout(() => {
-        return this.props.history.push(`/view-redflag`);
+        if (url === '/create-intervention') {
+          return this.props.history.push(`/view-intervention`);
+        }
+        if (url === '/create-redflag') {
+          return this.props.history.push(`/view-redflag`);
+        }
       }, 2000);
     }
   }
@@ -65,14 +74,12 @@ class CreateIncident extends Component {
       success
     } = this.props;
 
-    console.log(success);
-
     if (url === '/create-redflag') {
       this.props.createRecord(formData, 'red-flags');
     }
 
     if (url === '/create-intervention') {
-      return this.props.creßateRecord(formData, 'interventions');
+      return this.props.createRecord(formData, 'interventions');
     }
   };
 
@@ -96,11 +103,9 @@ class CreateIncident extends Component {
     } = this.state;
 
     const {
-      success,
       isCreating,
       match: { url }
     } = this.props;
-    console.log(this.props);
 
     return (
       <div className="position-center">
@@ -108,10 +113,15 @@ class CreateIncident extends Component {
         <div className="heading-story">
           <p>Tell Us About it,</p>
           <p> We can build a better Nation</p>
-          <a href="##" className="view-record">
+          <Link
+            to={
+              url === '/create-redflag' ? '/view-redflag' : '/view-intervention'
+            }
+            className="view-record"
+          >
             View {url === '/create-redflag' ? ' Redflag ' : ' Intervention '}
             records
-          </a>
+          </Link>
         </div>
         <div className="form-container">
           <h4 className="form-title">
@@ -201,7 +211,6 @@ class CreateIncident extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     error: state.error,
     isCreating: state.post.isCreating,

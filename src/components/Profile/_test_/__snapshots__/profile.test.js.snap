@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile /> should match snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "storeState": Object {
+        "Records": Object {
+          "errors": null,
+          "incidents": Array [],
+          "isFetching": false,
+        },
+        "auth": Object {
+          "isAuthenticated": null,
+          "isLoading": false,
+          "token": null,
+          "user": "",
+        },
+        "error": Object {
+          "id": null,
+          "msg": Object {},
+          "status": null,
+        },
+        "post": Object {
+          "incident": Object {},
+          "incidents": Array [],
+          "isCreating": false,
+          "isLoading": false,
+          "success": false,
+        },
+        "profile": Object {
+          "error": null,
+          "incidents": Array [],
+          "isLoading": false,
+        },
+        "singleRecord": Object {
+          "errors": null,
+          "incident": "",
+          "isFetching": false,
+        },
+      },
+    }
+  }
+>
+  <BrowserRouter>
+    <Connect(withRouter(Profile)) />
+  </BrowserRouter>
+</ContextProvider>
+`;
