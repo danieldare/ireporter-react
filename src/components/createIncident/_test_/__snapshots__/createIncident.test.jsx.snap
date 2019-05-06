@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateIncident /> matches the snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
+exports[`<CreateIncident /> rendering should match snapshot 1`] = `ReactWrapper {}`;

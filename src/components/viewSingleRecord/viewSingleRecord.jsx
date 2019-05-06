@@ -54,7 +54,6 @@ const viewOneRedflag = props => {
       <div className="single-container">
         <div className="heading-part">
           <div className="left-border__record">
-            <small className="one-record__title">Title</small>
             <p className="one-record__title-response">{title}</p>
             <p className="one-response__type">{type}</p>
           </div>
@@ -88,13 +87,6 @@ const viewOneRedflag = props => {
                   .toString()}
               </p>
             </div>
-            <Link
-              type="button"
-              to={`/edit-comment?id=${id}`}
-              className="edit-btn"
-            >
-              Edit Description
-            </Link>
           </div>
 
           <p className="description-incident__brief">{comments}</p>

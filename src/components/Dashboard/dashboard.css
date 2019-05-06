@@ -12,7 +12,7 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 4rem;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
 
 .card:hover {
@@ -37,15 +37,12 @@
   font-weight: 300;
   font-weight: 500;
   font-size: 3.7rem;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
 
 .card-img {
-  background-image: linear-gradient(
-      rgba(31, 31, 31, 0.39),
-      rgba(209, 209, 209, 0.3)
-    ),
-    url('https://res.cloudinary.com/decqfpglp/image/upload/v1551186082/bribe.jpg');
+  background-image: linear-gradient(rgba(31, 31, 31, 0.39), rgba(209, 209, 209, 0.3)),
+    url("https://res.cloudinary.com/decqfpglp/image/upload/v1551186082/bribe.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -57,11 +54,8 @@
 }
 
 .card-second-img {
-  background-image: linear-gradient(
-      rgba(219, 130, 103, 0.604),
-      rgba(59, 59, 59, 0.08)
-    ),
-    url('https://res.cloudinary.com/decqfpglp/image/upload/v1551186082/bribe4.jpg');
+  background-image: linear-gradient(rgba(219, 130, 103, 0.604), rgba(59, 59, 59, 0.08)),
+    url("https://res.cloudinary.com/decqfpglp/image/upload/v1551186082/bribe4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -130,7 +124,7 @@
   margin-top: 15px;
   text-transform: uppercase;
   letter-spacing: 0.6rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .title-user {
@@ -308,6 +302,9 @@ a:hover {
     color: #fff;
     float: right;
     display: block;
+    padding: 5px 0;
+    font-size: 2.9rem;
+    cursor: pointer;
   }
 }
 

@@ -20,10 +20,10 @@ export const fetchRecordFailure = payload => ({
   payload
 });
 
-export const fetchOneRecord = (id, url) => (dispatch, getState) => {
+export const fetchOneRecord = (id, url) => dispatch => {
   dispatch(fetchRecordRequest());
-  axios
-    .get(`${process.env.API_BASE_URL}/${url}/${id}`, tokenConfig(getState))
+  return axios
+    .get(`${process.env.API_BASE_URL}/${url}/${id}`, tokenConfig())
     .then(res => {
       return dispatch(fetchRecordSuccess(res.data.data[0]));
     })

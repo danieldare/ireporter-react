@@ -26,11 +26,7 @@ class CreateIncident extends Component {
       match: { url }
     } = this.props;
     if (error !== prevProps.error) {
-      if (error.id === 'POST_FAILED') {
-        this.setState({ msg: error.msg.errors });
-      } else {
-        this.setState({ msg: null });
-      }
+      this.setState({ msg: error });
     } else if (success !== prevProps.success) {
       setTimeout(() => {
         if (url === '/create-intervention') {
@@ -137,7 +133,7 @@ class CreateIncident extends Component {
               placeholder="title"
               name="title"
               onChange={this.onChange}
-              error={msg && msg.title}
+              error={msg.title}
               classname={msg.title && ' danger'}
               focus={e => this.onFocusClear(e.target.name)}
               value={title}
@@ -146,7 +142,7 @@ class CreateIncident extends Component {
               placeholder="description"
               name="comments"
               onChange={this.onChange}
-              error={msg && msg.comments}
+              error={msg.comments}
               classname={msg.comments && ' danger'}
               focus={e => this.onFocusClear(e.target.name)}
               value={comments}
@@ -155,7 +151,7 @@ class CreateIncident extends Component {
               placeholder="location (e.g 6.5243793, 3.3792057)"
               name="location"
               onChange={this.onChange}
-              error={msg && msg.location}
+              error={msg.location}
               classname={msg.location && ' danger'}
               focus={e => this.onFocusClear(e.target.name)}
               value={location}
@@ -212,8 +208,8 @@ class CreateIncident extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.error,
     isCreating: state.post.isCreating,
+    error: state.post.error,
     success: state.post.success,
     posts: state.profile
   };

@@ -1,28 +1,27 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
+import { MemoryRouter as Router } from 'react-router-dom';
 import ViewIncident from '../viewIncident';
-import store from '../../../../store';
-import mockRouterOptions from '../../../../test/__mocks__/mockRouter';
+import { mockStore } from '../../../../test/setupTests.js';
 
-describe('<Profile />', () => {
-  let wrapper;
+const props = {
+  Records: {
+    Records: 'records',
+    incidents: []
+  }
+};
 
-  beforeEach(() => {
-    wrapper = mount(
+describe('<ViewIncident /> rendering', () => {
+  it('should render without crashing', () => {
+    const store = mockStore(props);
+    const wrapper = mount(
       <Provider store={store}>
         <Router>
           <ViewIncident />
         </Router>
-      </Provider>,
-      mockRouterOptions
+      </Provider>
     );
-  });
-
-  it('should match snapshot', () => {
-    const tree = toJSON(wrapper);
-    expect(tree).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

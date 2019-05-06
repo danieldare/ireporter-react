@@ -10,7 +10,8 @@ const postState = {
   incident: {},
   isLoading: false,
   isCreating: false,
-  success: false
+  success: false,
+  error: ''
 };
 
 describe('Reset password reducer: ', () => {
@@ -24,7 +25,8 @@ describe('Reset password reducer: ', () => {
       incident: {},
       isLoading: false,
       isCreating: false,
-      success: false
+      success: false,
+      error: ''
     });
   });
 
@@ -64,7 +66,8 @@ describe('Reset password reducer: ', () => {
     const expected = {
       ...postState,
       isCreating: false,
-      success: false
+      success: false,
+      error: action.payload
     };
     expect(result).toEqual(expected);
   });

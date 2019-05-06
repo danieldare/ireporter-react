@@ -12,9 +12,10 @@ import {
 
 const initialState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
+  isAuthenticated: false,
   isLoading: false,
-  user: ''
+  user: '',
+  error: ''
 };
 
 export default (state = initialState, action) => {
@@ -30,7 +31,8 @@ export default (state = initialState, action) => {
         ...state,
         isAuthenticated: true,
         isLoading: false,
-        user: action.payload
+        user: action.payload,
+        error: null
       };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
@@ -39,12 +41,23 @@ export default (state = initialState, action) => {
         ...state,
         ...action.payload.data[0],
         isAuthenticated: true,
-        isLoading: false
+        isLoading: false,
+        error: null
       };
     case AUTH_ERROR:
     case LOGIN_FAIL:
-    case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
+      localStorage.removeItem('token');
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        isLoading: false,
+        user: null,
+        error: action.payload
+      };
+    case LOGOUT_SUCCESS:
+      window.location.href = '/login';
       localStorage.removeItem('token');
       return {
         ...state,

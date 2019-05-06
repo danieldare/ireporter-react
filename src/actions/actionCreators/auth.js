@@ -1,20 +1,18 @@
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import { returnErrors } from './error';
 import {
-  USER_LOADED,
   USER_LOADING,
-  AUTH_ERROR,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  LOGIN_FAIL
 } from '../actionTypes/types';
 
-export const tokenConfig = getState => {
+export const tokenConfig = () => {
   // get token from localStorage
-  const { token } = getState().auth;
+  const token = localStorage.getItem('token');
 
   // Headers
   const config = {
@@ -30,88 +28,67 @@ export const tokenConfig = getState => {
   return config;
 };
 
-// Check token and load user;
-export const loadUser = () => (dispatch, getState) => {
-  // dispatch user loading properties
-  dispatch({ type: USER_LOADING });
+export const userLoading = () => ({
+  type: USER_LOADING
+});
 
-  Axios.get(`${process.env.API_BASE_URL}/auth/current`, tokenConfig(getState))
-    .then(res =>
-      dispatch({
-        type: USER_LOADED,
-        payload: res.data
-      })
-    )
-    .catch(err => {
-      if (err.message === 'Network Error') {
-        return toast.error('Check Internet connection!');
-      }
-      dispatch(returnErrors(err, err.response.status));
-      dispatch({ type: AUTH_ERROR });
-      return false;
-    });
-};
+export const userSuccess = payload => ({
+  type: LOGIN_SUCCESS,
+  payload
+});
+
+export const userFailure = payload => ({
+  type: LOGIN_FAIL,
+  payload
+});
+
+export const registerSuccess = payload => ({
+  type: REGISTER_SUCCESS,
+  payload
+});
+
+export const registerFailure = payload => ({
+  type: REGISTER_FAIL,
+  payload
+});
 
 export const register = (userData, history) => dispatch => {
-  // Headers
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-
-  const userInfo = JSON.stringify({ ...userData });
-  dispatch({ type: USER_LOADING });
-  Axios.post(`${process.env.API_BASE_URL}/v1/auth/signup`, userInfo, config)
+  dispatch(userLoading());
+  return Axios.post(`${process.env.API_BASE_URL}/auth/signup`, { ...userData })
     .then(res => {
       toast.success('Registration successful');
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data
-      });
+      dispatch(registerSuccess(res.data));
       history.push('/login');
     })
     .catch(err => {
       if (err.message === 'Network Error') {
         return toast.error('Check Internet connection!');
       }
-      dispatch(
-        returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+      dispatch({ type: REGISTER_FAIL, payload: err.response.data.errors });
+      return (
+        typeof err.response.data.errors === 'string' &&
+        toast.error(err.response.data.errors)
       );
-      dispatch({ type: REGISTER_FAIL });
-      return toast.error(err.response.data.errors);
     });
 };
 
 export const login = (userData, history) => dispatch => {
-  // Headers
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-
-  const userInfo = JSON.stringify({ ...userData });
-  dispatch({ type: USER_LOADING });
-  return Axios.post(`${process.env.API_BASE_URL}/auth/login`, userInfo, config)
+  dispatch(userLoading());
+  return Axios.post(`${process.env.API_BASE_URL}/auth/login`, { ...userData })
     .then(res => {
+      dispatch(userSuccess(res.data));
       toast.success('Login successful');
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: res.data
-      });
       history.push('/dashboard');
     })
     .catch(err => {
       if (err.message === 'Network Error') {
         return toast.error('Check Internet connection!');
       }
-      dispatch(
-        returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
+      dispatch(userFailure(err.response.data.errors));
+      return (
+        typeof err.response.data.errors === 'string' &&
+        toast.error(err.response.data.errors)
       );
-      const { errors } = err.response.data;
-      dispatch({ type: REGISTER_FAIL });
-      return typeof errors === 'string' ? toast.error(errors) : '';
     });
 };
 

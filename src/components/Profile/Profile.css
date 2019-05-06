@@ -26,6 +26,9 @@
   align-items: center;
 }
 
+.table-container {
+  overflow: scroll;
+}
 .type-number {
   text-align: center;
   font-size: 3rem;

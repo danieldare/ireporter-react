@@ -1,35 +1,36 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { mount } from 'enzyme';
+import { MemoryRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import CreateIncident from '../createIncident';
-import store from '../../../../store';
-import mockRouterOptions from '../../../../test/__mocks__/mockRouter';
+import { mockStore } from '../../../../test/setupTests.js';
 
-describe('<CreateIncident />', () => {
-  it('matches the snapshot', () => {
-    const tree = shallow(<CreateIncident />);
-    expect(toJSON(tree)).toMatchSnapshot();
+const props = {
+  post: {
+    error: 'segun',
+    isCreating: false,
+    success: false,
+    login: jest.fn()
+  },
+  profile: {
+    posts: ''
+  },
+  match: {
+    url: ''
+  }
+};
+
+describe('<CreateIncident /> rendering', () => {
+  it('should match snapshot', () => {
+    const store = mockStore(props);
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <CreateIncident match={{ url: '' }} />
+        </Router>
+      </Provider>
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });
-
-// describe('<CreateIncident />', () => {
-//   let wrapper;
-
-//   beforeEach(() => {
-//     wrapper = mount(
-//       <Provider store={store}>
-//         <Router>
-//           <CreateIncident />
-//         </Router>
-//       </Provider>,
-//       mockRouterOptions
-//     );
-//   });
-
-//   it('should match snapshot', () => {
-//     const tree = toJSON(wrapper);
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
