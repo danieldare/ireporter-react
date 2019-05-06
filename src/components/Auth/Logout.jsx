@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/actionCreators/auth';
 
 const Logout = props => {
-  return (
-    <Fragment>
-      <Link to="#h" className="navlink" onClick={props.logout}>
-        Logout
-      </Link>
-    </Fragment>
-  );
+    return (
+        <Fragment>
+            <Link to="#h" className="navlink" onClick={props.logout}>
+                Logout
+            </Link>
+        </Fragment>
+    );
 };
 
 Logout.propTypes = {
-  logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired
 };
 
 export default connect(
-  null,
-  { logout }
+    null,
+    { logout }
 )(Logout);

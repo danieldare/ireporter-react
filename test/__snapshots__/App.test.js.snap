@@ -111,6 +111,55 @@ exports[`<App/> rendering matches the snapshot 1`] = `
                     </span>
                   </a>
                 </Link>
+                <div
+                  className="dropdown"
+                >
+                  <button
+                    className="dropbtn"
+                  >
+                    <i
+                      className="fas fa-bars"
+                    />
+                  </button>
+                  <div
+                    className="dropdown-content"
+                  >
+                    <li
+                      className="header__item"
+                    >
+                      <Link
+                        className="navlink"
+                        replace={false}
+                        to="/login"
+                      >
+                        <a
+                          className="navlink"
+                          href="/login"
+                          onClick={[Function]}
+                        >
+                          Login
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className="header__item"
+                    >
+                      <Link
+                        className=" navlink"
+                        replace={false}
+                        to="/register"
+                      >
+                        <a
+                          className=" navlink"
+                          href="/register"
+                          onClick={[Function]}
+                        >
+                          Register
+                        </a>
+                      </Link>
+                    </li>
+                  </div>
+                </div>
                 <ul
                   className="header__item-list"
                 >
@@ -118,12 +167,12 @@ exports[`<App/> rendering matches the snapshot 1`] = `
                     className="header__item"
                   >
                     <Link
-                      className="header__item-link"
+                      className="navlink"
                       replace={false}
                       to="/login"
                     >
                       <a
-                        className="header__item-link"
+                        className="navlink"
                         href="/login"
                         onClick={[Function]}
                       >
@@ -135,12 +184,12 @@ exports[`<App/> rendering matches the snapshot 1`] = `
                     className="header__item"
                   >
                     <Link
-                      className="header__item-link "
+                      className=" navlink"
                       replace={false}
                       to="/register"
                     >
                       <a
-                        className="header__item-link "
+                        className=" navlink"
                         href="/register"
                         onClick={[Function]}
                       >
@@ -325,57 +374,59 @@ exports[`<App/> rendering matches the snapshot 1`] = `
                         </div>
                       </div>
                     </section>
-                    <div
-                      className="how-it-works-title"
-                    >
-                      How it works
+                    <div>
+                      <div
+                        className="how-it-works-title"
+                      >
+                        How it works
+                      </div>
+                      <section
+                        className="how-it-works container"
+                      >
+                        <div
+                          className="how-it-work"
+                        >
+                          <p
+                            className="how-it-work-num"
+                          >
+                            1
+                          </p>
+                          <div
+                            className="how-it-work-brief"
+                          >
+                            Create and submit a red flag or intervention report.
+                          </div>
+                        </div>
+                        <div
+                          className="how-it-work"
+                        >
+                          <p
+                            className="how-it-work-num"
+                          >
+                            2
+                          </p>
+                          <div
+                            className="how-it-work-brief"
+                          >
+                            Reports are submitted to the appropriate authority and processed.
+                          </div>
+                        </div>
+                        <div
+                          className="how-it-work"
+                        >
+                          <p
+                            className="how-it-work-num"
+                          >
+                            3
+                          </p>
+                          <div
+                            className="how-it-work-brief"
+                          >
+                            Report are reviewed and a real time email is sent to owner of the record upon completion of the reviews.
+                          </div>
+                        </div>
+                      </section>
                     </div>
-                    <section
-                      className="how-it-works container"
-                    >
-                      <div
-                        className="how-it-work"
-                      >
-                        <p
-                          className="how-it-work-num"
-                        >
-                          1
-                        </p>
-                        <div
-                          className="how-it-work-brief"
-                        >
-                          Create and submit a red flag or intervention report.
-                        </div>
-                      </div>
-                      <div
-                        className="how-it-work"
-                      >
-                        <p
-                          className="how-it-work-num"
-                        >
-                          2
-                        </p>
-                        <div
-                          className="how-it-work-brief"
-                        >
-                          Reports are submitted to the appropriate authority and processed.
-                        </div>
-                      </div>
-                      <div
-                        className="how-it-work"
-                      >
-                        <p
-                          className="how-it-work-num"
-                        >
-                          3
-                        </p>
-                        <div
-                          className="how-it-work-brief"
-                        >
-                          Report are reviewed and a real time email is sent to owner of the record upon completion of the reviews.
-                        </div>
-                      </div>
-                    </section>
                     <section
                       className="relevant"
                     >

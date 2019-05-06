@@ -8,21 +8,40 @@ import CreateIncident from './components/createIncident/createIncident';
 import ViewIncident from './components/ViewIncident/viewIncident';
 import viewSingleRecord from './components/viewSingleRecord/viewSingleRecord';
 import Profile from './components/Profile/Profile';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 const route = () => (
-  <Switch>
-    <Route path="/" component={HomePage} exact />
-    <Route path="/dashboard" component={Dashboard} exact />
-    <Route path="/login" component={Login} exact />
-    <Route path="/create-redflag" component={CreateIncident} exact />
-    <Route path="/view-redflag" component={ViewIncident} exact />
-    <Route path="/view-intervention" component={ViewIncident} exact />
-    <Route path="/create-intervention" component={CreateIncident} exact />
-    <Route path="/view-single-redflag" component={viewSingleRecord} />
-    <Route path="/view-single-intervention" component={viewSingleRecord} />
-    <Route path="/profile" component={Profile} exact />
-    <Route path="/register" component={Register} exact />
-  </Switch>
+    <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/register" component={Register} exact />
+        <ProtectedRoute path="/dashboard" component={Dashboard} exact />
+        <ProtectedRoute
+            path="/create-redflag"
+            component={CreateIncident}
+            exact
+        />
+        <ProtectedRoute path="/view-redflag" component={ViewIncident} exact />
+        <ProtectedRoute
+            path="/view-intervention"
+            component={ViewIncident}
+            exact
+        />
+        <ProtectedRoute
+            path="/create-intervention"
+            component={CreateIncident}
+            exact
+        />
+        <ProtectedRoute
+            path="/view-single-redflag"
+            component={viewSingleRecord}
+        />
+        <ProtectedRoute
+            path="/view-single-intervention"
+            component={viewSingleRecord}
+        />
+        <ProtectedRoute path="/profile" component={Profile} exact />
+    </Switch>
 );
 
 export default route;
