@@ -15,7 +15,8 @@ class Register extends Component {
     email: '',
     password: '',
     password2: '',
-    msg: {}
+    msg: '',
+    errObj: ''
   };
 
   static propTypes = {
@@ -26,27 +27,15 @@ class Register extends Component {
   componentDidUpdate(prevProps) {
     const { error } = this.props;
     if (error !== prevProps.error) {
-      if (error.id === 'REGISTER_FAIL') {
-        this.setState({ msg: error.msg.errors });
+      if (typeof error === 'string') {
+        this.setState({ msg: error });
+      } else if (typeof error === 'object') {
+        this.setState({ errObj: error });
       } else {
-        this.setState({ mgs: null });
+        this.setState({ msg: '', errObj: '' });
       }
     }
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.msg !== this.props.error) {
-  //     // Perform some operation
-  //     this.setState({ msg: nextProps.error.msg.errors });
-  //   }
-  // }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (nextProps.error !== prevState.msg) {
-  //     return { msg: nextProps.error.msg.errors };
-  //   }
-  //   return null;
-  // }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -98,12 +87,12 @@ class Register extends Component {
       email,
       password,
       password2,
-      msg
+      msg,
+      errObj
     } = this.state;
-    const { isLoading } = this.props;
+    const { isLoading, error } = this.props;
     return (
       <div>
-        {/* <ToastContainer autoClose={2000} /> */}
         {isLoading ? <div className="overlay-loading" /> : ''}
         <div className="form-container">
           <h4 className="form-title">Kindly Register Below</h4>
@@ -115,8 +104,8 @@ class Register extends Component {
               placeholder="first name"
               value={firstname}
               onChange={this.onChange}
-              error={msg.firstname}
-              classname={msg.firstname ? ' danger' : ''}
+              error={errObj !== null && errObj.firstname}
+              classname={errObj !== null && errObj.firstname ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
             <InputField
@@ -125,8 +114,8 @@ class Register extends Component {
               placeholder="last name"
               value={lastname}
               onChange={this.onChange}
-              error={msg.lastname}
-              classname={msg.lastname ? ' danger' : ''}
+              error={errObj !== null && errObj.lastname}
+              classname={errObj !== null && errObj.lastname ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
 
@@ -136,8 +125,8 @@ class Register extends Component {
               placeholder="other names"
               value={othernames}
               onChange={this.onChange}
-              error={msg.othernames}
-              classname={msg.othernames ? ' danger' : ''}
+              error={errObj !== null && errObj.othernames}
+              classname={errObj !== null && errObj.othernames ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
 
@@ -147,8 +136,8 @@ class Register extends Component {
               placeholder="user name"
               value={username}
               onChange={this.onChange}
-              error={msg.username}
-              classname={msg.username ? ' danger' : ''}
+              error={errObj !== null && errObj.username}
+              classname={errObj !== null && errObj.username ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
 
@@ -158,8 +147,8 @@ class Register extends Component {
               placeholder="phonenumber"
               value={phonenumber}
               onChange={this.onChange}
-              error={msg.phonenumber}
-              classname={msg.phonenumber ? ' danger' : ''}
+              error={errObj !== null && errObj.phonenumber}
+              classname={errObj !== null && errObj.phonenumber ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
             <InputField
@@ -168,8 +157,8 @@ class Register extends Component {
               placeholder="email address"
               value={email}
               onChange={this.onChange}
-              error={msg.email}
-              classname={msg.email ? ' danger' : ''}
+              error={errObj !== null && errObj.email}
+              classname={errObj !== null && errObj.email ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
             <InputField
@@ -178,8 +167,8 @@ class Register extends Component {
               placeholder="password"
               value={password}
               onChange={this.onChange}
-              error={msg.password}
-              classname={msg.password ? ' danger' : ''}
+              error={errObj !== null && errObj.password}
+              classname={errObj !== null && errObj.password ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
             <InputField
@@ -188,8 +177,8 @@ class Register extends Component {
               placeholder="password"
               value={password2}
               onChange={this.onChange}
-              error={msg.password2}
-              classname={msg.password2 ? ' danger' : ''}
+              error={errObj !== null && errObj.password2}
+              classname={errObj !== null && errObj.password2 ? ' danger' : ''}
               focus={e => this.onFocusClear(e.target.name)}
             />
 
@@ -212,8 +201,7 @@ class Register extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  error: state.error,
+  error: state.auth.error,
   isLoading: state.auth.isLoading
 });
 

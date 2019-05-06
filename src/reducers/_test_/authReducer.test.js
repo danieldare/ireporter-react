@@ -13,9 +13,10 @@ import authReducer from '../authReducer';
 
 const authState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
+  isAuthenticated: false,
   isLoading: false,
-  user: ''
+  user: '',
+  error: ''
 };
 
 describe('Auth reducer: ', () => {
@@ -26,9 +27,10 @@ describe('Auth reducer: ', () => {
       })
     ).toEqual({
       token: localStorage.getItem('token'),
-      isAuthenticated: null,
+      isAuthenticated: false,
       isLoading: false,
-      user: ''
+      user: '',
+      error: ''
     });
   });
 
@@ -54,6 +56,7 @@ describe('Auth reducer: ', () => {
       ...authState,
       isAuthenticated: true,
       isLoading: false,
+      error: null,
       user: action.payload
     };
     expect(result).toEqual(expected);
@@ -63,7 +66,22 @@ describe('Auth reducer: ', () => {
     const action = {
       type: LOGIN_FAIL,
       type: AUTH_ERROR,
-      type: REGISTER_FAIL,
+      type: REGISTER_FAIL
+    };
+    const result = authReducer(authState, action);
+    const expected = {
+      ...authState,
+      token: null,
+      isAuthenticated: false,
+      isLoading: false,
+      user: null,
+      error: action.payload
+    };
+    expect(result).toEqual(expected);
+  });
+
+  it('should update the reducer state when unsuccessful', () => {
+    const action = {
       type: LOGOUT_SUCCESS
     };
     const result = authReducer(authState, action);

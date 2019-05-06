@@ -34,12 +34,13 @@ module.exports = {
   coveragePathIgnorePatterns: [
     'node_modules',
     'src/appcss.js',
-    'src/reducers/errorReducer.js',
     'src/app.js',
     'public',
-    './store.js'
-    // 'src/routes',
-    // 'src/reducers'
+    './index.js',
+    './store.js',
+    'src/components/createIncident',
+    'src/components/Profile',
+    'src/components/Auth/Logout.jsx'
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports

@@ -7,7 +7,7 @@ import { logout } from '../../actions/actionCreators/auth';
 const Logout = props => {
   return (
     <Fragment>
-      <Link to="#h" className="header__item-link " onClick={props.logout}>
+      <Link to="#h" className="navlink" onClick={props.logout}>
         Logout
       </Link>
     </Fragment>

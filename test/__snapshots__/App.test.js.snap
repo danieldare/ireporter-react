@@ -76,7 +76,8 @@ exports[`<App/> rendering matches the snapshot 1`] = `
           <Header
             auth={
               Object {
-                "isAuthenticated": null,
+                "error": "",
+                "isAuthenticated": false,
                 "isLoading": false,
                 "token": null,
                 "user": "",
@@ -216,7 +217,8 @@ exports[`<App/> rendering matches the snapshot 1`] = `
                 <HomePage
                   auth={
                     Object {
-                      "isAuthenticated": null,
+                      "error": "",
+                      "isAuthenticated": false,
                       "isLoading": false,
                       "token": null,
                       "user": "",

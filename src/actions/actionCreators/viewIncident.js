@@ -20,10 +20,10 @@ export const fetchIncidentFailure = payload => ({
   payload
 });
 
-export const fetchIncident = url => (dispatch, getState) => {
+export const fetchIncident = url => dispatch => {
   dispatch(fetchIncidentRequest());
-  axios
-    .get(`${process.env.API_BASE_URL}/${url}`, tokenConfig(getState))
+  return axios
+    .get(`${process.env.API_BASE_URL}/${url}`, tokenConfig())
     .then(res => {
       return dispatch(fetchIncidentSuccess(res.data.data));
     })

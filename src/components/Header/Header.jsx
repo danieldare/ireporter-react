@@ -6,12 +6,12 @@ import Logout from '../Auth/Logout';
 const authLinks = (
   <Fragment>
     <li className="header__item">
-      <Link to="/profile" className="header__item-link ">
+      <Link to="/profile" className="navlink">
         Profile
       </Link>
     </li>
     <li className="header__item">
-      <Link to="/dashboard" className="header__item-link ">
+      <Link to="/dashboard" className="navlink">
         Dashboard
       </Link>
     </li>
@@ -24,12 +24,12 @@ const authLinks = (
 const guestLinks = (
   <Fragment>
     <li className="header__item">
-      <Link to="/login" className="header__item-link">
+      <Link to="/login" className="navlink">
         Login
       </Link>
     </li>
     <li className="header__item">
-      <Link to="/register" className="header__item-link ">
+      <Link to="/register" className=" navlink">
         Register
       </Link>
     </li>
@@ -47,6 +47,14 @@ const Header = props => (
       <Link to="/" className="header__brand-link">
         <span className="header__brand">iReporter</span>
       </Link>
+      <div className="dropdown">
+        <button className="dropbtn">
+          <i className="fas fa-bars" />
+        </button>
+        <div className="dropdown-content">
+          {props.auth.isAuthenticated ? authLinks : guestLinks}
+        </div>
+      </div>
       <ul className="header__item-list">
         {props.auth.isAuthenticated ? authLinks : guestLinks}
       </ul>

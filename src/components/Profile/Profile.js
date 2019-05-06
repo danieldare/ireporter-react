@@ -35,7 +35,7 @@ const Profile = props => {
   let rejectedCount = 0;
 
   const dataTable = (
-    <section>
+    <section className="table-container">
       <table className="table">
         <thead>
           <tr className="th-head">

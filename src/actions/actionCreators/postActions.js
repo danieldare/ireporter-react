@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import { returnErrors } from './error';
 import {
   CREATE_REDFLAG,
   CREATE_FAILED,
@@ -9,12 +8,12 @@ import {
 } from '../actionTypes/types';
 import { tokenConfig } from './auth';
 
-export const createRecord = (incidentData, type) => (dispatch, getState) => {
+export const createRecord = (incidentData, type) => dispatch => {
   dispatch({ type: CREATING });
-  Axios.post(
+  return Axios.post(
     `${process.env.API_BASE_URL}/${type}`,
     incidentData,
-    tokenConfig(getState)
+    tokenConfig()
   )
     .then(res => {
       dispatch({
@@ -28,14 +27,8 @@ export const createRecord = (incidentData, type) => (dispatch, getState) => {
         dispatch({ type: NETWORK_ERROR });
         return toast.error('Check Internet connection!');
       }
-      if (err.message.includes('timeout')) {
-        dispatch({ type: NETWORK_ERROR });
-        return toast.error('Timeout!');
-      }
-      dispatch(
-        returnErrors(err.response.data, err.response.status, 'POST_FAILED')
-      );
-      dispatch({ type: CREATE_FAILED });
+
+      dispatch({ type: CREATE_FAILED, payload: err.response.data.errors });
       return toast.error(err.response.data.errors || err.response);
     });
 };

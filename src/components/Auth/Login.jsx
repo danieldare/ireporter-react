@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import InputField from '../InputFields/InputField';
 import { login } from '../../actions/actionCreators/auth';
 
@@ -9,21 +10,19 @@ class Login extends Component {
   state = {
     email: '',
     password: '',
-    msg: ''
-  };
-
-  static propTypes = {
-    isAuthenticated: PropTypes.bool,
-    error: PropTypes.object.isRequired
+    msg: '',
+    errObj: ''
   };
 
   componentDidUpdate(prevProps) {
     const { error } = this.props;
     if (error !== prevProps.error) {
-      if (error.id === 'LOGIN_FAIL') {
-        this.setState({ msg: error.msg.errors });
+      if (typeof error === 'string') {
+        this.setState({ msg: error });
+      } else if (typeof error === 'object') {
+        this.setState({ errObj: error });
       } else {
-        this.setState({ mgs: null });
+        this.setState({ msg: '', errObj: '' });
       }
     }
   }
@@ -46,13 +45,16 @@ class Login extends Component {
 
   focusDelete = target => {
     const prevMsg = this.state.msg;
+    const prevErrObj = this.state.errObj;
     delete prevMsg[target];
+    delete prevErrObj[target];
     this.setState({ msg: prevMsg });
   };
 
   render() {
-    const { email, password, msg } = this.state;
-    const { isLoading } = this.props;
+    const { email, password, errObj } = this.state;
+    const { isLoading, error } = this.props;
+
     return (
       <div className="form-container">
         {isLoading ? <div className="overlay-loading" /> : ''}
@@ -64,8 +66,8 @@ class Login extends Component {
             placeholder="email address"
             value={email}
             onChange={this.onChange}
-            error={msg.email}
-            classname={msg.email ? ' danger' : ''}
+            error={errObj !== null && errObj.email}
+            classname={errObj !== null && errObj.email ? ' danger' : ''}
             focus={e => this.focusDelete(e.target.name)}
           />
           <InputField
@@ -74,15 +76,14 @@ class Login extends Component {
             placeholder="password"
             value={password}
             onChange={this.onChange}
-            error={msg.password}
-            classname={msg.password ? ' danger' : ''}
+            error={errObj !== null && errObj.password}
+            classname={errObj !== null && errObj.password ? ' danger' : ''}
             focus={e => this.focusDelete(e.target.name)}
           />
           <button className="btn--auth" type="submit">
             {isLoading ? <span className="spinner" /> : 'Login'}
           </button>
         </form>
-
         <p className="account-not">
           Don't have an account? <Link to="/register">Kindly Register</Link>
         </p>
@@ -97,10 +98,15 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  error: state.error,
+  error: state.auth.error,
   isLoading: state.auth.isLoading
 });
+
+Login.propTypes = {
+  error: PropTypes.shape().isRequired,
+  isLoading: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,

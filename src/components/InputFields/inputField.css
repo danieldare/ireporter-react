@@ -91,3 +91,9 @@
   transition: 0.1ms;
   outline: none;
 }
+
+@media only screen and (max-width: 700px) {
+  .form-container {
+    width: 83%;
+  }
+}

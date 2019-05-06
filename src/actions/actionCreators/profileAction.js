@@ -24,9 +24,9 @@ export const getIncidentFailure = payload => ({
   payload
 });
 
-export const getIncidents = () => (dispatch, getState) => {
+export const getIncidents = () => dispatch => {
   dispatch(getIncidentStart());
-  Axios.get(`${process.env.API_BASE_URL}/incident`, tokenConfig(getState))
+  return Axios.get(`${process.env.API_BASE_URL}/incident`, tokenConfig())
     .then(res => {
       dispatch(getIncidentSuccess(res.data.data));
     })
@@ -35,11 +35,11 @@ export const getIncidents = () => (dispatch, getState) => {
     });
 };
 
-export const deleteIncident = (id, type) => (dispatch, getState) => {
+export const deleteIncident = (id, type) => dispatch => {
   dispatch({ type: INCIDENT_DELETING });
-  Axios.delete(
+  return Axios.delete(
     `${process.env.API_BASE_URL}/${type}/${id}`,
-    tokenConfig(getState)
+    tokenConfig()
   )
     .then(res => {
       dispatch({ type: DELETE_INCIDENT, payload: id });

@@ -39,28 +39,30 @@ const HomePage = props => (
       </div>
     </section>
 
-    <div className="how-it-works-title">How it works</div>
-    <section className="how-it-works container">
-      <div className="how-it-work">
-        <p className="how-it-work-num">1</p>
-        <div className="how-it-work-brief">
-          Create and submit a red flag or intervention report.
+    <div>
+      <div className="how-it-works-title">How it works</div>
+      <section className="how-it-works container">
+        <div className="how-it-work">
+          <p className="how-it-work-num">1</p>
+          <div className="how-it-work-brief">
+            Create and submit a red flag or intervention report.
+          </div>
         </div>
-      </div>
-      <div className="how-it-work">
-        <p className="how-it-work-num">2</p>
-        <div className="how-it-work-brief">
-          Reports are submitted to the appropriate authority and processed.
+        <div className="how-it-work">
+          <p className="how-it-work-num">2</p>
+          <div className="how-it-work-brief">
+            Reports are submitted to the appropriate authority and processed.
+          </div>
         </div>
-      </div>
-      <div className="how-it-work">
-        <p className="how-it-work-num">3</p>
-        <div className="how-it-work-brief">
-          Report are reviewed and a real time email is sent to owner of the
-          record upon completion of the reviews.
+        <div className="how-it-work">
+          <p className="how-it-work-num">3</p>
+          <div className="how-it-work-brief">
+            Report are reviewed and a real time email is sent to owner of the
+            record upon completion of the reviews.
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <section className="relevant">
       <p className="relevant-content">MAKE YOUR VOICE RELEVANT</p>
     </section>

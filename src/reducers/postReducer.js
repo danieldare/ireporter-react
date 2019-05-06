@@ -9,7 +9,8 @@ const initialState = {
   incident: {},
   isLoading: false,
   isCreating: false,
-  success: false
+  success: false,
+  error: ''
 };
 
 export default (state = initialState, action) => {
@@ -19,7 +20,8 @@ export default (state = initialState, action) => {
         ...state,
         incident: [action.payload, ...state.incidents],
         isCreating: false,
-        success: true
+        success: true,
+        error: ''
       };
     case CREATING:
       return {
@@ -31,7 +33,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isCreating: false,
-        success: false
+        success: false,
+        error: action.payload
       };
 
     default:
