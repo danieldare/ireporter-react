@@ -1,15 +1,9 @@
-/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const ProtectedRoute = ({
-    component: Component,
-    isAuthenticated,
-    isAdmin,
-    ...rest
-}) => (
+const ProtectedRoute = ({ component: Component, isAuthenticated, ...rest }) => (
     <Route
         {...rest}
         render={props => {

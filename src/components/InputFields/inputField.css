@@ -97,3 +97,10 @@
     width: 83%;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .form-container {
+    width: 100%;
+    box-shadow: none;
+  }
+}
