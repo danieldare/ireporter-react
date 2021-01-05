@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "7.4.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "circular-dependency-plugin": "^5.0.2",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.0",
